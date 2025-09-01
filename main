@@ -1,0 +1,1946 @@
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+WindUI:Localization({
+    Enabled = true,
+    Prefix = "loc:",
+    DefaultLanguage = "en",
+    Translations = {
+        ["en"] = {
+            -- Tabs
+            ["TAB_PLAYER"] = "Player",
+            ["TAB_VISUALS"] = "Visuals",
+            ["TAB_FUNCTIONS"] = "Functions",
+            ["TAB_TELEPORTS"] = "Teleports",
+            ["TAB_NOTIFICATIONS"] = "Notifications",
+            ["TAB_KEYBINDS"] = "Keybinds",
+                ["TAB_DESIGN"] = "Design",
+            ["TAB_MISC"] = "Misc",
+
+            -- Paragraph descriptions
+            ["DESC_PLAYER"] = "Adjust player parameters",
+            ["DESC_VISUALS"] = "Visual adjustments",
+            ["DESC_TELEPORTS"] = "Teleport shortcuts",
+            ["DESC_NOTIFICATIONS"] = "In-game notifications",
+            ["DESC_KEYBINDS"] = "Hotkeys",
+                ["DESC_DESIGN"] = "Design settings",
+            ["DESC_MISC"] = "Various settings",
+            ["DESC_FUNCTIONS"] = "Script functions",
+
+            -- Sections
+            ["SECT_ESP"] = "ESP",
+            ["SECT_PATH"] = "Path",
+            ["SECT_SURVIVOR"] = "Survivor",
+            ["SECT_KILLER"] = "Killer",
+            ["SECT_UI"] = "UI",
+            ["SECT_TP"] = "Teleports",
+            ["SECT_FUNCS"] = "Functions",
+            -- Labels & controls
+            ["LBL_FOV"] = "Field of View",
+            ["LBL_WALKSPEED_PERCENT"] = "WalkSpeed in %",
+            ["LBL_JUMPPOWER"] = "JumpPower",
+            ["LBL_FLY_SPEED"] = "Fly speed",
+            ["LBL_GOD_MODE"] = "God Mode",
+            ["LBL_INF_JUMP"] = "Infinite Jump",
+            ["LBL_NAME"] = "Name",
+            ["LBL_PLAYER"] = "Player",
+            ["LBL_GENERATOR"] = "Generator",
+            ["LBL_PALLET"] = "Pallet",
+            ["LBL_WINDOW"] = "Window",
+            ["LBL_HOOK"] = "Hook",
+            ["LBL_GATE"] = "Gate",
+
+            -- Path targets
+            ["LBL_NEAREST_SURVIVOR"] = "Nearest survivor",
+            ["LBL_SPECIFIC_SURVIVOR"] = "Specific survivor",
+            ["LBL_SPECIFIC_PLAYER_COLOR"] = "Specific player color",
+            ["LBL_PATH_TO_KILLER"] = "Path to killer",
+            ["LBL_NEAREST_GENERATOR"] = "Nearest generator",
+            ["LBL_NEAREST_PALLET"] = "Nearest pallet",
+            ["LBL_NEAREST_WINDOW"] = "Nearest window",
+            ["LBL_NEAREST_HOOK"] = "Nearest hook",
+            ["LBL_NEAREST_GATE"] = "Nearest gate",
+
+            -- Function toggles
+            ["LBL_FUNCTIONS_UTILS"] = "More functions",
+            ["LBL_ITEM_NO_COOLDOWN"] = "Item no cooldown",
+            ["LBL_BANDAGE_HEAL_ADV"] = "Bandage no animation",
+            ["LBL_TWIST_OF_FATE_OP"] = "Twist of Fate op mode",
+            ["LBL_INF_FLASHLIGHT"] = "Inf flashlight",
+            ["LBL_AUTO_SKILLCHECK"] = "Auto SkillCheck",
+            ["LBL_AUTO_UNHOOK"] = "Auto UnHook",
+            ["LBL_DAGGER_AUTOPARRY"] = "Dagger AutoParry (with cooldown)",
+            ["NO_PALLET_COLLISION"] = "No pallet collision",
+            ["ABILITIES_AIMBOT"] = "Abilities aimbot",
+            ["NO_GET_PARRYIED"] = "No get parried",
+            ["DESC_NO_GET_PARRYIED"] = "If someone tries to parry you, you will not be able to hit him",
+            ["LBL_AUTO_TP_HOOK"] = "Auto tp hook",
+            ["LBL_AUTO_ATTACK"] = "Auto attack",
+            ["LBL_AUTO_CARRY"] = "Auto carry",
+            ["LBL_FULLBRIGHT"] = "FullBright",
+            ["LBL_NOCLIP"] = "Noclip",
+            ["LBL_FLY"] = "Fly",
+            ["BTN_KILL_ALL"] = "Kill everyone",
+            ["KILL_SOMEONE"] = "Kill someone",
+            ["BTN_BREAK_PALLETS"] = "Break all downed pallets",
+            ["ARE_YOU_SURE"] = "Are you sure?",
+            ["DESC_KILL_ALL"] = "Are you sure you want to kill everyone?",
+            ["CONFIRM"] = "Confirm",
+            ["CANCEL"] = "Cancel",
+            -- Teleports quick actions & dropdown titles
+            ["LBL_MORE_TELEPORTS"] = "More teleports",
+            ["LBL_TELEPORT_TO_SPECIFIC_PLAYER"] = "Teleport to specific player",
+            ["NO_PLAYERS"] = "No players",
+            -- Visuals dropdown titles
+            ["LBL_MORE_ESP"] = "More ESP",
+            ["LBL_MORE_PATH"] = "More path targets",
+            ["LBL_NONE"] = "None",
+
+            -- Notifications toggles
+            ["LBL_NOTIFY_KNOW_KILLER"] = "Know Killer",
+            ["LBL_NOTIFY_BREAKS_GEN"] = "Killer breaks generator",
+            ["LBL_NOTIFY_HOOKS"] = "Killer hooks someone",
+            ["LBL_NOTIFY_DOWN"] = "Killer down someone",
+            ["DESC_NOTIFY_KNOW_KILLER"] = "Notification about killer class",
+
+            -- Keybinds inputs
+            ["KEY_TOGGLE_UI"] = "Open/close UI",
+            ["KEY_TP_NEAREST_SURV"] = "Tp to nearest survivor",
+            ["KEY_TP_DOWNED_SURV"] = "Tp to downed survivor",
+            ["KEY_TP_HOOKED_SURV"] = "Tp to hooked survivor",
+            ["KEY_TP_NEAREST_GEN"] = "Tp to nearest generator",
+            ["KEY_TP_FARTHEST_GEN"] = "Tp to farthest generator",
+            ["KEY_TP_NEAREST_HOOK"] = "Tp to nearest hook",
+            ["KEY_TP_FARTHEST_HOOK"] = "Tp to farthest hook",
+            ["KEY_TP_FARTHEST_GATE"] = "Tp to farthest gate",
+            ["KEY_FULLBRIGHT"] = "FullBright",
+            ["KEY_FLY"] = "Fly",
+            ["KEY_NOCLIP"] = "Noclip",
+
+            -- Misc / Config / Design / Community
+            ["LBL_FPS_BOOST"] = "FPS boost",
+            ["LBL_CONFIG_NAME"] = "Config name",
+            ["LBL_SAVE_CONFIG"] = "Save config",
+            ["LBL_LOAD_CONFIG"] = "Load config",
+            ["LBL_JOIN_DISCORD"] = "Join Discord",
+            ["LBL_LANGUAGE"] = "Language",
+                ["LBL_THEME_SELECT"] = "Theme",
+                ["LBL_TRANSPARENT_SLIDER"] = "Transparency",
+            ["LBL_PLAYER_UTILS"] = "Player Utilities",
+        },
+        ["ru"] = {
+            -- Tabs
+            ["TAB_PLAYER"] = "Игрок",
+            ["TAB_VISUALS"] = "Визуал",
+            ["TAB_FUNCTIONS"] = "Функции",
+            ["TAB_TELEPORTS"] = "Телепорты",
+            ["TAB_NOTIFICATIONS"] = "Уведомления",
+            ["TAB_KEYBINDS"] = "Клавиши",
+                ["TAB_DESIGN"] = "Дизайн",
+            ["TAB_MISC"] = "Разное",
+
+            -- Paragraph descriptions
+            ["DESC_PLAYER"] = "Изменение параметров игрока",
+            ["DESC_VISUALS"] = "Визуальные настройки",
+            ["DESC_TELEPORTS"] = "Быстрые телепорты",
+            ["DESC_NOTIFICATIONS"] = "Игровые уведомления",
+            ["DESC_KEYBINDS"] = "Горячие клавиши",
+                ["DESC_DESIGN"] = "Настройки дизайна",
+            ["DESC_MISC"] = "Прочие параметры",
+            ["DESC_FUNCTIONS"] = "Функции скрипта",
+
+            -- Sections
+            ["SECT_ESP"] = "ESP",
+            ["SECT_PATH"] = "Пути",
+            ["SECT_SURVIVOR"] = "Выживший",
+            ["SECT_KILLER"] = "Убийца",
+            ["SECT_UI"] = "Интерфейс",
+            ["SECT_TP"] = "Телепорты",
+            ["SECT_FUNCS"] = "Функции",
+
+            -- Labels & controls
+            ["LBL_FOV"] = "Угол обзора",
+            ["LBL_WALKSPEED_PERCENT"] = "Скорость ходьбы в %",
+            ["LBL_JUMPPOWER"] = "Сила прыжка",
+            ["LBL_GOD_MODE"] = "Бессмертие",
+            ["LBL_INF_JUMP"] = "Бесконечный прыжок",
+            ["LBL_NAME"] = "Имя",
+            ["LBL_PLAYER"] = "Игрок",
+            ["LBL_GENERATOR"] = "Генератор",
+            ["LBL_PALLET"] = "Паллет",
+            ["LBL_WINDOW"] = "Окно",
+            ["LBL_HOOK"] = "Крюк",
+            ["LBL_GATE"] = "Ворота",
+
+            -- Path targets
+            ["LBL_NEAREST_SURVIVOR"] = "Ближайший выживший",
+            ["LBL_SPECIFIC_SURVIVOR"] = "Конкретный выживший",
+            ["LBL_SPECIFIC_PLAYER_COLOR"] = "Цвет конкретного игрока",
+            ["LBL_PATH_TO_KILLER"] = "Путь к убийце",
+            ["LBL_NEAREST_GENERATOR"] = "Ближайший генератор",
+            ["LBL_NEAREST_PALLET"] = "Ближайший паллет",
+            ["LBL_NEAREST_WINDOW"] = "Ближайшее окно",
+            ["LBL_NEAREST_HOOK"] = "Ближайший крюк",
+            ["LBL_NEAREST_GATE"] = "Ближайшие ворота",
+
+            -- Function toggles
+            ["LBL_FUNCTIONS_UTILS"] = "Доп. функции",
+            ["LBL_ITEM_NO_COOLDOWN"] = "Предмет без перезарядки",
+            ["LBL_BANDAGE_HEAL_ADV"] = "Лечение бинтами без анимации",
+            ["LBL_TWIST_OF_FATE_OP"] = "Twist of Fate — оп-режим",
+            ["LBL_INF_FLASHLIGHT"] = "Бесконечный фонарик",
+            ["LBL_AUTO_SKILLCHECK"] = "Авто SkillCheck",
+            ["LBL_AUTO_UNHOOK"] = "Авто снятие с крюка",
+            ["LBL_DAGGER_AUTOPARRY"] = "Кинжал: автопарирование (с КД)",
+            ["LBL_AUTO_TP_HOOK"] = "Авто ТП к крюку",
+            ["LBL_AUTO_ATTACK"] = "Авто атака",
+            ["LBL_AUTO_CARRY"] = "Авто перенос",
+            ["LBL_FULLBRIGHT"] = "Полная яркость",
+            ["LBL_NOCLIP"] = "Ноклип",
+            ["LBL_FLY"] = "Полет",
+            ["BTN_KILL_ALL"] = "Убить всех",
+            ["KILL_SOMEONE"] = "Убить кого-то",
+            ["BTN_BREAK_PALLETS"] = "Сломать все поваленные паллеты",
+            ["NO_PALLET_COLLISION"] = "Без столкновения с паллетами",
+            ["ABILITIES_AIMBOT"] = "Аимбот способностей",
+            ["NO_GET_PARRYIED"] = "Не получать парирование",
+            ["DESC_NO_GET_PARRYIED"] = "Если кто-то попытается парировать вас, вы не сможете ударить его",
+            ["ARE_YOU_SURE"] = "Вы уверены?",
+            ["DESC_KILL_ALL"] = "Вы уверены, что хотите убить всех?",
+            ["CONFIRM"] = "Подтвердить",
+            ["CANCEL"] = "Отмена",
+            -- Teleports quick actions & dropdown titles
+            ["LBL_MORE_TELEPORTS"] = "Доп. телепорты",
+            ["LBL_TELEPORT_TO_SPECIFIC_PLAYER"] = "Телепорт к конкретному игроку",
+            ["NO_PLAYERS"] = "Нет игроков",
+            -- Visuals dropdown titles
+            ["LBL_MORE_ESP"] = "Доп. ESP",
+            ["LBL_MORE_PATH"] = "Доп. цели пути",
+
+            -- Notifications toggles
+            ["LBL_NOTIFY_KNOW_KILLER"] = "Узнать убийцу",
+            ["LBL_NOTIFY_BREAKS_GEN"] = "Убийца ломает генератор",
+            ["LBL_NOTIFY_HOOKS"] = "Убийца вешает на крюк",
+            ["LBL_NOTIFY_DOWN"] = "Убийца кладёт на землю",
+            ["DESC_NOTIFY_KNOW_KILLER"] = "Уведомление о классе убийцы",
+
+            -- Keybinds inputs
+            ["KEY_TOGGLE_UI"] = "Открыть/закрыть UI",
+            ["KEY_TP_NEAREST_SURV"] = "ТП к ближайшему выжившему",
+            ["KEY_TP_DOWNED_SURV"] = "ТП к поваленному выжившему",
+            ["KEY_TP_HOOKED_SURV"] = "ТП к повешенному выжившему",
+            ["KEY_TP_NEAREST_GEN"] = "ТП к ближайшему генератору",
+            ["KEY_TP_FARTHEST_GEN"] = "ТП к дальнему генератору",
+            ["KEY_TP_NEAREST_HOOK"] = "ТП к ближайшему крюку",
+            ["KEY_TP_FARTHEST_HOOK"] = "ТП к дальнему крюку",
+            ["KEY_TP_FARTHEST_GATE"] = "ТП к дальним воротам",
+            ["KEY_FULLBRIGHT"] = "Полная яркость",
+            ["KEY_FLY"] = "Полет",
+            ["KEY_NOCLIP"] = "Ноклип",
+
+            -- Misc / Config / Design / Community
+            ["LBL_FPS_BOOST"] = "ФПС буст",
+            ["LBL_CONFIG_NAME"] = "Имя конфига",
+            ["LBL_SAVE_CONFIG"] = "Сохранить конфиг",
+            ["LBL_LOAD_CONFIG"] = "Загрузить конфиг",
+            ["LBL_JOIN_DISCORD"] = "Вступить в Discord",
+            ["LBL_LANGUAGE"] = "Язык",
+                ["LBL_THEME_SELECT"] = "Тема",
+                ["LBL_TRANSPARENT_SLIDER"] = "Прозрачность",
+            ["LBL_PLAYER_UTILS"] = "Игровые функции",
+
+               -- Key system
+            ["KEYSYS_NOTE"] = "Введите ключ для продолжения",
+        },
+    }
+})
+local MainWindow = WindUI:CreateWindow({
+    Title = "RossHub",
+    Icon = "door-open", 
+    Author = "By KipMy",
+    Folder = "RossHub",
+    Size = UDim2.fromScale(0.86, 0.86),
+    Theme = "Dark",
+        Transparent = false,
+    Position = UDim2.fromScale(0.5, 0.5),
+    AnchorPoint = Vector2.new(0.5, 0.5),
+    SideBarWidth = 180,
+    KeySystem = {
+        Key = { "RossHub" },
+        Note = "loc:KEYSYS_NOTE",
+        SaveKey = true,
+    },
+    User = {
+        Enabled = true,
+        Anonymous = false,
+    }
+})
+
+MainWindow:CreateTopbarButton("theme-switcher", "moon", function()
+    WindUI:SetTheme(WindUI:GetCurrentTheme() == "Dark" and "Light" or "Dark")
+end, 990)
+
+MainWindow:IsResizable(true)
+
+local PlayerTab = MainWindow:Tab({
+    Title = "loc:TAB_PLAYER",
+    Icon = "user",
+    Locked = false,
+})
+
+local PlayerTabParagraph = PlayerTab:Paragraph({
+    Title = "loc:TAB_PLAYER",
+    Desc = "loc:DESC_PLAYER",
+    Color = Color3.fromHex("#22C55E"),
+})
+
+PlayerTab:Divider()
+
+local function PlayerESP()
+    local P = game:GetService("Players")
+    local lp = P.LocalPlayer
+    local COL = {
+        Killer = BrickColor.new("Crimson").Color,
+        Spectator = BrickColor.new("White").Color,
+        Survivors = BrickColor.new("Deep blue").Color
+    }
+
+    local function bind(p)
+        if p == lp then return end
+        local function onChar(ch)
+            -- Если уже есть кастомный ESP, не трогаем этого игрока!
+            if ch:FindFirstChild("CustomESP_Highlight") then
+                return
+            end
+            -- Удаляем только стандартные ESP
+            for _, v in ipairs(ch:GetChildren()) do
+                if v:IsA("Highlight") and v.Name == "ESP_Highlight" then
+                    v:Destroy()
+                end
+            end
+            -- Создаём стандартный ESP
+            local h = ch:FindFirstChild("ESP_Highlight") or (function()
+                local x = Instance.new("Highlight")
+                x.Name = "ESP_Highlight"
+                x.Adornee = ch
+                x.Parent = ch
+                return x
+            end)()
+            local c = COL[p.Team and p.Team.Name or "Spectator"] or Color3.new(1,1,1)
+            h.FillColor = c
+            h.OutlineColor = c
+        end
+        p.CharacterAdded:Connect(onChar)
+        p:GetPropertyChangedSignal("Team"):Connect(function()
+            if p.Character then
+                onChar(p.Character)
+            end
+        end)
+        if p.Character then onChar(p.Character) end
+    end
+
+    for _, p in ipairs(P:GetPlayers()) do bind(p) end
+    P.PlayerAdded:Connect(bind)
+    P.PlayerRemoving:Connect(function(p)
+        local ch = p.Character
+        if ch then
+            local h = ch:FindFirstChild("ESP_Highlight")
+        if h then h:Destroy() end
+        end
+    end)
+end
+
+local function CustomPlayerESP(players, color)
+    local P = game:GetService("Players")
+    local lp = P.LocalPlayer
+
+    -- Удаляем все кастомные ESP
+    for _, p in ipairs(P:GetPlayers()) do
+        if p ~= lp and p.Character then
+            local h = p.Character:FindFirstChild("CustomESP_Highlight")
+            if h then h:Destroy() end
+        end
+    end
+
+    -- Применяем кастомный ESP только к выбранным игрокам
+    for _, playerName in ipairs(players) do
+        local username = playerName:match("@([^)]+)")
+        if username then
+            local player = P:FindFirstChild(username)
+            if player and player ~= lp then
+                local function onChar(ch)
+                    -- Удаляем только кастомный ESP
+                    local h = ch:FindFirstChild("CustomESP_Highlight")
+                    if not h then
+                        h = Instance.new("Highlight")
+                        h.Name = "CustomESP_Highlight"
+                        h.Adornee = ch
+                        h.Parent = ch
+                    end
+                    h.FillColor = color
+                    h.OutlineColor = color
+                end
+                player.CharacterAdded:Connect(onChar)
+                if player.Character then onChar(player.Character) end
+            end
+        end
+    end
+end
+
+-- Глобальная функция для обновления стандартного ESP
+local function UpdateStandardESP()
+    if standardESPEnabled then
+        print("Updating standard ESP to exclude custom ESP players")
+        local P = game:GetService("Players")
+        local lp = P.LocalPlayer
+        
+        -- Очищаем все стандартные ESP
+        for _, p in ipairs(P:GetPlayers()) do
+            if p ~= lp and p.Character then
+                local h = p.Character:FindFirstChild("ESP_Highlight")
+                if h then h:Destroy() end
+            end
+        end
+        
+        -- Применяем стандартный ESP заново (с проверкой кастомного)
+        PlayerESP()
+    end
+end
+
+local function NameESP()
+    local P = game:GetService("Players")
+    local lp = P.LocalPlayer
+    local COL = {
+        Killer = BrickColor.new("Crimson").Color,
+        Spectator = BrickColor.new("White").Color,
+        Survivors = BrickColor.new("Deep blue").Color
+    }
+
+    local function bind(p)
+        if p == lp then return end
+
+        local function mk(ch)
+            if not ch then return end
+            local head = ch:FindFirstChild("Head") or ch:FindFirstChild("HumanoidRootPart")
+            if not head then return end
+            local old = head:FindFirstChild("NameTag")
+            if old then old:Destroy() end
+
+            local bg = Instance.new("BillboardGui", head)
+            bg.Name = "NameTag"
+            bg.Adornee = head
+            bg.AlwaysOnTop = true
+            bg.Size = UDim2.new(0, 160, 0, 24)
+            bg.StudsOffset = Vector3.new(0, 2.4, 0)
+            bg.MaxDistance = math.huge
+
+            local t = Instance.new("TextLabel", bg)
+            t.Size = UDim2.new(1, 0, 1, 0)
+            t.BackgroundTransparency = 1
+            t.TextScaled = true
+            t.Font = Enum.Font.SourceSansBold
+            t.Text = (p.DisplayName ~= "") and p.DisplayName or p.Name
+            t.TextColor3 = COL[(p.Team and p.Team.Name) or ""] or Color3.new(1, 1, 1)
+        end
+
+        p.CharacterAdded:Connect(mk)
+        p:GetPropertyChangedSignal("DisplayName"):Connect(function()
+            if p.Character then mk(p.Character) end
+        end)
+        p:GetPropertyChangedSignal("Team"):Connect(function()
+            if p.Character then mk(p.Character) end
+        end)
+        if p.Character then mk(p.Character) end
+    end
+
+    for _, p in ipairs(P:GetPlayers()) do
+        bind(p)
+    end
+
+    P.PlayerAdded:Connect(bind)
+    P.PlayerRemoving:Connect(function(p)
+        if p.Character then
+            local n = p.Character:FindFirstChild("NameTag")
+            if n then n:Destroy() end
+        end
+    end)
+end
+
+
+-- Gated controls state and helpers for PlayerTab
+local function getHumanoid()
+	local player = game.Players.LocalPlayer
+	if player and player.Character then
+		return player.Character:FindFirstChild("Humanoid")
+	end
+end
+
+local baseFOV = 70
+local baseWalkSpeed = 16
+local baseJumpPower = 50
+do
+	local h = getHumanoid()
+	if h then
+		baseWalkSpeed = h.WalkSpeed
+		baseJumpPower = h.JumpPower
+	end
+end
+
+local desiredFOV = 70
+local desiredWalkPercent = 100
+local desiredJumpPower = 50
+
+local fovEnabled = false
+local wsEnabled = false
+local jpEnabled = false
+
+local function applyFOV(v)
+	if workspace.CurrentCamera then
+		workspace.CurrentCamera.FieldOfView = v
+	end
+end
+
+local function applyWalkPercent(p)
+	local h = getHumanoid()
+	if h then
+		h.WalkSpeed = 16 * (p / 100)
+	end
+end
+
+local function applyJump(v)
+	local h = getHumanoid()
+	if h then
+		h.JumpPower = v
+	end
+end
+
+-- Infinite Jump helpers
+local UIS = game:GetService("UserInputService")
+local infiniteJumpEnabled = false
+local _infiniteJumpConn
+local function enableInfiniteJump()
+	if _infiniteJumpConn then _infiniteJumpConn:Disconnect() _infiniteJumpConn = nil end
+	_infiniteJumpConn = UIS.JumpRequest:Connect(function()
+		local h = getHumanoid()
+		if h then
+			h:ChangeState(Enum.HumanoidStateType.Jumping)
+		end
+	end)
+end
+local function disableInfiniteJump()
+	if _infiniteJumpConn then _infiniteJumpConn:Disconnect() _infiniteJumpConn = nil end
+end
+
+-- Fly helpers
+local RunService = game:GetService("RunService")
+local flyEnabled = false
+local desiredFlySpeed = 5
+local _flyStepConn
+
+local function getRootPart()
+	local h = getHumanoid()
+	if h and h.Parent then
+		return h.Parent:FindFirstChild("HumanoidRootPart")
+	end
+end
+
+local function enableFly()
+	if _flyStepConn then _flyStepConn:Disconnect() _flyStepConn = nil end
+	local h = getHumanoid()
+	local hrp = getRootPart()
+	if not (h and hrp) then return end
+	h.PlatformStand = true
+	h.AutoRotate = false
+	local bv = hrp:FindFirstChild("RH_FlyBV")
+	if not bv or not bv:IsA("BodyVelocity") then
+		if bv then bv:Destroy() end
+		bv = Instance.new("BodyVelocity")
+		bv.Name = "RH_FlyBV"
+		bv.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+		bv.P = 9e4
+		bv.Velocity = Vector3.zero
+		bv.Parent = hrp
+	end
+	local bg = hrp:FindFirstChild("RH_FlyGyro")
+	if not bg or not bg:IsA("BodyGyro") then
+		if bg then bg:Destroy() end
+		bg = Instance.new("BodyGyro")
+		bg.Name = "RH_FlyGyro"
+		bg.MaxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.P = 9e4
+		bg.Parent = hrp
+	end
+	_flyStepConn = RunService.RenderStepped:Connect(function()
+		local hum = getHumanoid()
+		local root = getRootPart()
+		local body = root and root:FindFirstChild("RH_FlyBV")
+		local gyro = root and root:FindFirstChild("RH_FlyGyro")
+		local cam = workspace.CurrentCamera
+		if not (hum and root and body and gyro and cam) then return end
+		-- Classic-style: orient to camera and move on camera axes
+		gyro.CFrame = cam.CFrame
+		local forward = cam.CFrame.LookVector
+		local right = cam.CFrame.RightVector
+		local up = cam.CFrame.UpVector
+		local f = 0; if UIS:IsKeyDown(Enum.KeyCode.W) then f = 1 elseif UIS:IsKeyDown(Enum.KeyCode.S) then f = -1 end
+		local r = 0; if UIS:IsKeyDown(Enum.KeyCode.D) then r = 1 elseif UIS:IsKeyDown(Enum.KeyCode.A) then r = -1 end
+		local u = 0
+		if UIS:IsKeyDown(Enum.KeyCode.E) then u = u + 1 end
+		if UIS:IsKeyDown(Enum.KeyCode.Q) then u = u - 1 end
+		local move = forward * f + right * r + up * u
+		if move.Magnitude > 1 then move = move.Unit end
+		local speed = desiredFlySpeed * 10
+		body.Velocity = move * speed
+	end)
+end
+
+local function disableFly()
+	if _flyStepConn then _flyStepConn:Disconnect() _flyStepConn = nil end
+	local h = getHumanoid()
+	if h then h.PlatformStand = false h.AutoRotate = true end
+	local hrp = getRootPart()
+	if hrp then
+		local bv = hrp:FindFirstChild("RH_FlyBV")
+		if bv then bv:Destroy() end
+		local bg = hrp:FindFirstChild("RH_FlyGyro")
+		if bg then bg:Destroy() end
+	end
+end
+
+-- Classic FullBright helpers
+local fullBrightEnabled = false
+local _fullBrightConn
+local savedLighting = {}
+local function saveLighting()
+    local L = game:GetService("Lighting")
+    savedLighting.Brightness = L.Brightness
+    savedLighting.ClockTime = L.ClockTime
+    savedLighting.FogEnd = L.FogEnd
+    savedLighting.GlobalShadows = L.GlobalShadows
+    savedLighting.Ambient = L.Ambient
+    savedLighting.ColorShift_Top = L:FindFirstChild("ColorShift_Top") and L.ColorShift_Top or L.ColorShift_Top
+    savedLighting.ColorShift_Bottom = L:FindFirstChild("ColorShift_Bottom") and L.ColorShift_Bottom or L.ColorShift_Bottom
+end
+local function applyFullBright()
+    local L = game:GetService("Lighting")
+    L.Brightness = 1
+    L.ClockTime = 14
+    L.FogEnd = 1e10
+    L.GlobalShadows = false
+    L.Ambient = Color3.fromRGB(255, 255, 255)
+    pcall(function() L.ColorShift_Top = Color3.fromRGB(255, 255, 255) end)
+    pcall(function() L.ColorShift_Bottom = Color3.fromRGB(255, 255, 255) end)
+end
+local function enableFullBright()
+    if fullBrightEnabled then return end
+    fullBrightEnabled = true
+    saveLighting()
+    applyFullBright()
+    if _fullBrightConn then _fullBrightConn:Disconnect() _fullBrightConn = nil end
+    _fullBrightConn = RunService.Heartbeat:Connect(function()
+        if fullBrightEnabled then applyFullBright() end
+    end)
+end
+local function disableFullBright()
+    fullBrightEnabled = false
+    if _fullBrightConn then _fullBrightConn:Disconnect() _fullBrightConn = nil end
+    local L = game:GetService("Lighting")
+    if next(savedLighting) ~= nil then
+        L.Brightness = savedLighting.Brightness or L.Brightness
+        L.ClockTime = savedLighting.ClockTime or L.ClockTime
+        L.FogEnd = savedLighting.FogEnd or L.FogEnd
+        L.GlobalShadows = savedLighting.GlobalShadows
+        L.Ambient = savedLighting.Ambient or L.Ambient
+        pcall(function() if savedLighting.ColorShift_Top then L.ColorShift_Top = savedLighting.ColorShift_Top end end)
+        pcall(function() if savedLighting.ColorShift_Bottom then L.ColorShift_Bottom = savedLighting.ColorShift_Bottom end end)
+    end
+end
+
+-- Classic Noclip helpers
+local noclipEnabled = false
+local _noclipConn
+local function forceNoClip()
+    local char = game.Players.LocalPlayer.Character
+    if not char then return end
+    for _, part in ipairs(char:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.CanCollide = false
+        end
+    end
+end
+local function restoreCollide()
+    local char = game.Players.LocalPlayer.Character
+    if not char then return end
+    for _, part in ipairs(char:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.CanCollide = true
+        end
+    end
+end
+local function enableNoclip()
+    if _noclipConn then _noclipConn:Disconnect() _noclipConn = nil end
+    noclipEnabled = true
+    forceNoClip()
+    _noclipConn = RunService.Stepped:Connect(function()
+        if noclipEnabled then forceNoClip() end
+    end)
+end
+local function disableNoclip()
+    noclipEnabled = false
+    if _noclipConn then _noclipConn:Disconnect() _noclipConn = nil end
+    restoreCollide()
+end
+
+-- Persist-after-respawn manager and hook
+local RespawnPersist = { _items = {} }
+function RespawnPersist:Register(name, fn)
+	self._items[name] = fn
+end
+function RespawnPersist:Reapply()
+	for _, fn in pairs(self._items) do
+		pcall(fn)
+	end
+end
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+LocalPlayer.CharacterAdded:Connect(function(character)
+	local hum = character:WaitForChild("Humanoid", 5)
+	if hum then
+		-- refresh base values for new character
+		baseWalkSpeed = hum.WalkSpeed
+		baseJumpPower = hum.JumpPower
+	end
+	-- small delay to ensure character fully initialized
+	task.wait(0.1)
+	RespawnPersist:Reapply()
+end)
+
+local FOVSlider = PlayerTab:Slider({
+	Title = "loc:LBL_FOV",
+	Step = 1,
+	Value = { Min = 70, Max = 120, Default = 70 },
+	Callback = function(v)
+		desiredFOV = v
+		if fovEnabled then
+			applyFOV(v)
+		end
+	end,
+})
+
+local WalkSpeedSlider = PlayerTab:Slider({
+	Title = "loc:LBL_WALKSPEED_PERCENT",
+	Step = 1,
+	Value = { Min = 0, Max = 500, Default = 100 },
+	Callback = function(v)
+		desiredWalkPercent = v
+		if wsEnabled then
+			applyWalkPercent(v)
+		end
+	end,
+})
+
+local JumpPowerSlider = PlayerTab:Slider({
+	Title = "loc:LBL_JUMPPOWER",
+	Step = 1,
+	Value = { Min = 0, Max = 120, Default = 50 },
+	Callback = function(v)
+		desiredJumpPower = v
+		if jpEnabled then
+			applyJump(v)
+		end
+	end,
+})
+
+PlayerTab:Divider()
+
+local FOVToggle = PlayerTab:Toggle({
+    Title = "loc:LBL_FOV",
+    Default = false,
+    Callback = function(state)
+        fovEnabled = state
+        if state then
+            applyFOV(desiredFOV)
+            RespawnPersist:Register("FOV", function()
+                if fovEnabled then applyFOV(desiredFOV) end
+            end)
+        else
+            applyFOV(baseFOV)
+            RespawnPersist:Register("FOV", function()
+                applyFOV(baseFOV)
+            end)
+        end
+    end,
+})
+
+local WalkSpeedToggle = PlayerTab:Toggle({
+    Title = "loc:LBL_WALKSPEED_PERCENT",
+    Default = false,
+    Callback = function(state)
+        wsEnabled = state
+        local h = getHumanoid()
+        if state then
+            applyWalkPercent(desiredWalkPercent)
+            RespawnPersist:Register("WALKSPEED", function()
+                if wsEnabled then applyWalkPercent(desiredWalkPercent) end
+            end)
+        else
+            if h then
+                h.WalkSpeed = baseWalkSpeed
+            end
+            RespawnPersist:Register("WALKSPEED", function()
+                local hum = getHumanoid()
+                if hum then hum.WalkSpeed = baseWalkSpeed end
+            end)
+        end
+    end,
+})
+
+local JumpPowerToggle = PlayerTab:Toggle({
+    Title = "loc:LBL_JUMPPOWER",
+    Default = false,
+    Callback = function(state)
+        jpEnabled = state
+        local h = getHumanoid()
+        if state then
+            applyJump(desiredJumpPower)
+            RespawnPersist:Register("JUMPPOWER", function()
+                if jpEnabled then applyJump(desiredJumpPower) end
+            end)
+        else
+            if h then
+                h.JumpPower = baseJumpPower
+            end
+            RespawnPersist:Register("JUMPPOWER", function()
+                local hum = getHumanoid()
+                if hum then hum.JumpPower = baseJumpPower end
+            end)
+        end
+    end,
+})
+
+PlayerTab:Divider()
+
+local GodModeToggle = PlayerTab:Toggle({
+    Title = "loc:LBL_GOD_MODE",
+    Type = "Checkbox",
+    Default = false,
+})
+
+-- Player utilities (moved from Functions -> Other) as a dropdown
+local PlayerUtilsDropdown = PlayerTab:Dropdown({
+    Title = "loc:LBL_PLAYER_UTILS",
+    Values = { "Infinite Jump", "FullBright", "Noclip", "Fly" },
+    Value = {},
+    Multi = true,
+    AllowNone = true,
+    Callback = function(values)
+        -- Normalize to table for both single/multi
+        local selected = values
+        if selected == nil then selected = {} end
+        if typeof(selected) ~= "table" then selected = { selected } end
+
+        -- Helpers to check membership
+        local function has(name)
+            for _, v in ipairs(selected) do if v == name then return true end end
+            return false
+        end
+
+        -- Infinite Jump
+        infiniteJumpEnabled = has("Infinite Jump")
+        if infiniteJumpEnabled then
+            enableInfiniteJump()
+        else
+            disableInfiniteJump()
+        end
+        RespawnPersist:Register("INFINITE_JUMP", function()
+            if infiniteJumpEnabled then enableInfiniteJump() else disableInfiniteJump() end
+        end)
+
+        -- FullBright (classic)
+        local fullBrightOn = has("FullBright")
+        if fullBrightOn then enableFullBright() else disableFullBright() end
+        RespawnPersist:Register("FULLBRIGHT", function()
+            if fullBrightOn then enableFullBright() end
+        end)
+
+        -- Noclip (classic)
+        local noclipOn = has("Noclip")
+        if noclipOn then enableNoclip() else disableNoclip() end
+        RespawnPersist:Register("NOCLIP", function()
+            if noclipOn then enableNoclip() else disableNoclip() end
+        end)
+
+        local flyOn = has("Fly")
+        flyEnabled = flyOn
+        if flyOn then enableFly() else disableFly() end
+        RespawnPersist:Register("FLY", function()
+            if flyEnabled then enableFly() else disableFly() end
+        end)
+    end,
+})
+
+PlayerTab:Divider()
+
+local FlySpeedSlider = PlayerTab:Slider({
+	Title = "loc:LBL_FLY_SPEED",
+	Step = 1,
+	Value = { Min = 1, Max = 50, Default = desiredFlySpeed },
+	Callback = function(v)
+		desiredFlySpeed = v
+	end,
+})
+-- Изначально опционально можно скрывать/показывать слайдер, но WindUI API примера не содержит метода Hide/Show
+-- Поэтому слайдер просто остаётся видимым; скорость учитывается только когда Fly выбран
+
+local VisualsTab = MainWindow:Tab({
+    Title = "loc:TAB_VISUALS",
+    Icon = "eye",
+    Locked = false,
+})
+
+local VisualsTabParagraph = VisualsTab:Paragraph({
+    Title = "loc:TAB_VISUALS",
+    Desc = "loc:DESC_VISUALS",
+    Color = Color3.fromHex("#3B82F6"),
+})
+
+VisualsTab:Divider()
+
+local ESPSection = VisualsTab:Section({ 
+    Title = "loc:SECT_ESP",
+    TextXAlignment = "Center",
+    TextSize = 17,
+})
+
+-- Переменная для отслеживания состояния стандартного ESP
+local standardESPEnabled = false
+
+VisualsTab:Toggle({
+    Title = "loc:LBL_PLAYER",
+    Callback = function(state)
+        standardESPEnabled = state
+        if state then
+            print("Standard ESP enabled")
+            PlayerESP()
+        else
+            print("Standard ESP disabled")
+            -- При отключении стандартного ESP, очищаем все ESP
+            local P = game:GetService("Players")
+            local lp = P.LocalPlayer
+            
+            for _, p in ipairs(P:GetPlayers()) do
+                if p ~= lp then
+                    local ch = p.Character
+                    if ch then
+                        local h = ch:FindFirstChild("ESP_Highlight")
+                        if h then h:Destroy() end
+                    end
+                end
+            end
+        end
+    end,
+})
+
+VisualsTab:Toggle({ 
+    Title = "loc:LBL_NAME",
+    Callback = function(state)
+        if state then
+        NameESP()
+        else
+            local n = p.Character:FindFirstChild("NameTag")
+            print("NameESP disabled")
+            if n then n:Destroy() end
+            print("NameTag destroyed")
+        end
+    end,
+})
+
+
+-- Переменные для хранения текущих значений
+local currentSelectedPlayers1 = {}
+local currentSelectedColor1 = Color3.fromRGB(0, 255, 0)
+
+-- Создаем дропдаун для выбора игроков
+local SpecificSurvivorESPDropdown1 = VisualsTab:Dropdown({
+    Title = "loc:LBL_SPECIFIC_SURVIVOR",  -- Заголовок
+    Values = {"Нет игроков"},  -- Изначально заглушка
+    Value = {},  -- Изначально пустое выбранное значение
+    Multi = true,  -- Разрешаем выбрать несколько игроков
+    AllowNone = true,  -- Разрешаем снять все галочки
+    Callback = function(values)
+        print("Dropdown callback called with values:", values)
+        
+        -- Сохраняем выбранные значения
+        currentSelectedPlayers1 = values or {}
+        print("Saved currentSelectedPlayers1:", currentSelectedPlayers1)
+        
+        -- Обрабатываем выбранные значения
+        if values and type(values) == "table" and #values > 0 then
+            print("Values is table with", #values, "items")
+            
+            -- Проверяем, что выбраны реальные игроки (не заглушка)
+            local realPlayers = {}
+            for _, value in ipairs(values) do
+                print("Checking value:", value)
+                if value ~= "Нет игроков" then
+                    table.insert(realPlayers, value)
+                    print("Added real player:", value)
+                end
+            end
+            
+            print("Real players count:", #realPlayers)
+            
+            if #realPlayers > 0 then
+                print("Calling CustomPlayerESP with", #realPlayers, "players and color:", tostring(currentSelectedColor1))
+                -- Применяем кастомный ESP с текущим цветом
+                CustomPlayerESP(realPlayers, currentSelectedColor1)
+                        
+                -- Обновляем стандартный ESP, чтобы исключить игроков с кастомным ESP
+                if standardESPEnabled then
+                    print("Updating standard ESP after custom ESP change")
+                    UpdateStandardESP()
+                end
+            end
+                        else
+                    print("No values or empty table, clearing custom ESP")
+                    -- Если ничего не выбрано, очищаем кастомный ESP
+                    CustomPlayerESP({}, Color3.new(0, 0, 0))
+                    
+                    -- Восстанавливаем стандартный ESP для всех игроков, если он включен
+                    if standardESPEnabled then
+                        print("Restoring standard ESP for all players")
+                        PlayerESP()
+        end
+    end
+    end,
+})
+
+-- Функция для обновления значений дропдауна с игроками
+local function updatePlayerListDropdown()
+    print("updatePlayerListDropdown called")
+    local playerValues = {}
+    -- Получаем всех игроков на сервере
+    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+        if player ~= game.Players.LocalPlayer then  -- Исключаем локального игрока
+            -- Форматируем имя игрока как "DisplayName (@Username)"
+            local playerName = string.format("%s (@%s)", player.DisplayName, player.Name)
+            -- Добавляем игрока в список значений
+            table.insert(playerValues, playerName)
+        end
+    end 
+    -- Если нет игроков, показываем заглушку
+    if #playerValues == 0 then
+        playerValues = {"Нет игроков"}
+    end
+    
+    print("Found", #playerValues, "players for dropdown")
+    
+    -- Создаем новый дропдаун с обновленными значениями
+    -- WindUI не поддерживает SetValues, поэтому пересоздаем
+    if SpecificSurvivorESPDropdown1 then
+        -- Сохраняем текущий выбор пользователя
+        local currentSelection = currentSelectedPlayers1 or {}
+        SpecificSurvivorESPDropdown1:Destroy()
+        
+        SpecificSurvivorESPDropdown1 = VisualsTab:Dropdown({
+            Title = "loc:LBL_SPECIFIC_SURVIVOR",
+            Values = playerValues,
+            Value = currentSelection, -- Восстанавливаем выбор пользователя
+            Multi = true,
+            AllowNone = true,
+            Callback = function(values)
+                -- Сохраняем выбранные значения
+                currentSelectedPlayers1 = values or {}
+                print("Saved currentSelectedPlayers1:", currentSelectedPlayers1)
+                
+                -- Обрабатываем выбранные значения
+                if values and type(values) == "table" and #values > 0 then
+                    print("Values is table with", #values, "items")
+                    
+                    -- Проверяем, что выбраны реальные игроки (не заглушка)
+                    local realPlayers = {}
+                    for _, value in ipairs(values) do
+                        print("Checking value:", value)
+                        if value ~= "Нет игроков" then
+                            table.insert(realPlayers, value)
+                            print("Added real player:", value)
+    end
+end
+
+                    print("Real players count:", #realPlayers)
+                    
+                    if #realPlayers > 0 then
+                        print("Calling CustomPlayerESP with", #realPlayers, "players and color:", tostring(currentSelectedColor1))
+                        -- Применяем кастомный ESP с текущим цветом
+                        CustomPlayerESP(realPlayers, currentSelectedColor1)
+                        
+                        -- Обновляем стандартный ESP, чтобы исключить игроков с кастомным ESP
+                        if standardESPEnabled then
+                            print("Updating standard ESP after custom ESP change")
+                            UpdateStandardESP()
+                        end
+                    end
+                else
+                    print("No values or empty table, clearing custom ESP")
+                    -- Если ничего не выбрано, очищаем кастомный ESP
+                    CustomPlayerESP({}, Color3.new(0, 0, 0))
+                    
+                    -- Восстанавливаем стандартный ESP для всех игроков, если он включен
+                    if standardESPEnabled then
+                        print("Restoring standard ESP for all players")
+                        PlayerESP()
+                    end
+                end
+            end,
+        })
+    end
+    
+    -- Убираем дублирующийся код создания дропдауна
+end
+
+-- Обновляем список игроков при старте
+updatePlayerListDropdown()
+
+-- Обработчик для добавления нового игрока
+game:GetService("Players").PlayerAdded:Connect(function(player)
+    task.wait(1)  -- Небольшая задержка для инициализации
+    updatePlayerListDropdown()
+end)
+
+-- Обработчик для удаления игрока
+game:GetService("Players").PlayerRemoving:Connect(function(player)
+    task.wait(0.5)  -- Небольшая задержка
+    updatePlayerListDropdown()
+end)
+
+
+
+
+local SpecificPlayerColorpicker1 = VisualsTab:Colorpicker({
+    Title = "loc:LBL_SPECIFIC_PLAYER_COLOR",
+    Default = Color3.fromRGB(0, 255, 0),
+    Transparency = 0,
+    Locked = false,
+    Callback = function(color, transparency)
+        -- Сохраняем новый цвет
+        currentSelectedColor1 = color
+        
+        -- Автоматически применяем новый цвет к выбранным игрокам
+        if currentSelectedPlayers1 and type(currentSelectedPlayers1) == "table" and #currentSelectedPlayers1 > 0 then
+            local realPlayers = {}
+            for _, value in ipairs(currentSelectedPlayers1) do
+                if value ~= "Нет игроков" then
+                    table.insert(realPlayers, value)
+                end
+            end
+            
+            if #realPlayers > 0 then
+                CustomPlayerESP(realPlayers, color)
+                
+                -- Обновляем стандартный ESP, чтобы исключить игроков с кастомным ESP
+                if standardESPEnabled then
+                    print("Updating standard ESP after color change")
+                    UpdateStandardESP()
+        end
+    end
+end
+    end,
+})
+
+
+local MoreESPDropdown = VisualsTab:Dropdown({
+    Title = "loc:LBL_MORE_ESP",
+    Values = {"Generator", "Pallet", "Window", "Hook", "Gate"},
+    Value = {},
+    Multi = true,  -- Позволяем выбирать несколько значений
+    AllowNone = true,
+    Callback = function(values)
+        -- Нормализуем значения
+        local selected = type(values) == "table" and values or {values}
+
+        -- Храним ссылки на созданные объекты для удаления
+        local createdObjects = {}
+
+        -- Функция для ожидания появления объекта
+        local function waitForObject(objectName)
+            repeat
+                wait(1)
+            until Workspace.Map:FindFirstChild(objectName)
+            return Workspace.Map[objectName]
+        end
+
+        -- Функция для создания текста над объектом в нужном стиле
+        local function createTextAboveObject(object, text)
+            local bg = Instance.new("BillboardGui")
+            bg.Parent = object
+            bg.Name = "NameTag"
+            bg.Adornee = object
+            bg.AlwaysOnTop = true
+            bg.Size = UDim2.new(0, 160, 0, 24)  -- Размер текста
+            bg.StudsOffset = Vector3.new(0, 2.4, 0)  -- Центрируем текст сверху объекта
+            bg.MaxDistance = math.huge  -- Даем максимальную дистанцию, чтобы текст был виден
+
+            local t = Instance.new("TextLabel")
+            t.Parent = bg
+            t.Size = UDim2.new(1, 0, 1, 0)
+            t.BackgroundTransparency = 1
+            t.TextScaled = true
+            t.Font = Enum.Font.SourceSansBold  -- Шрифт как в примере
+            t.Text = text  -- Текст, который будет отображаться
+            t.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Цвет текста (остаемся с белым, как по умолчанию)
+            t.TextXAlignment = Enum.TextXAlignment.Center
+            t.TextYAlignment = Enum.TextYAlignment.Center  -- Выравнивание текста по центру
+
+            -- Сохраняем ссылку на созданный объект для удаления
+            table.insert(createdObjects, bg)
+        end
+
+        -- Функция для подсветки крюка
+        local function highlightHook(hook)
+            if hook and hook:IsA("Model") then
+                local highlight = hook:FindFirstChild("Highlight")
+                if not highlight then
+                    highlight = Instance.new("Highlight")
+                    highlight.Parent = hook
+                    highlight.FillTransparency = 0.5
+                    highlight.FillColor = Color3.fromRGB(255, 255, 255)  -- Белая подсветка
+                    highlight.OutlineTransparency = 0.5
+                    highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+                end
+
+                -- Сохраняем ссылку на созданный Highlight для удаления
+                table.insert(createdObjects, highlight)
+            end
+        end
+
+        -- Функция для получения прогресса генератора
+        local function getGeneratorProgress(generator)
+            local progress = generator:GetAttribute("RepairProgress")  -- Используем атрибут
+            if progress then
+                local repairProgressValue = math.floor(progress * 100)  -- Получаем целое значение процента
+                return tostring(repairProgressValue) .. "%"
+            end
+            return "N/A"
+        end
+
+        -- Перебираем выбранные значения
+        for _, option in ipairs(selected) do
+            if option == "Generator" then
+                -- Перебираем все генераторы
+                for _, generator in pairs(Workspace.Map:GetChildren()) do
+                    if generator.Name == "Generator" then
+                        local progressText = getGeneratorProgress(generator)
+                        createTextAboveObject(generator, progressText)
+                    end
+                end
+            end
+
+            if option == "Pallet" then
+                -- Перебираем все паллеты (Pallet и PalletAlien)
+                for _, pallet in pairs(Workspace.Map:GetChildren()) do
+                    if pallet.Name == "Pallet" or pallet.Name == "PalletAlien" then
+                        createTextAboveObject(pallet, "Pallet")
+                    end
+                end
+            end
+
+            if option == "Window" then
+                -- Перебираем все окна
+                for _, window in pairs(Workspace.Map:GetChildren()) do
+                    if window.Name == "Window" then
+                        createTextAboveObject(window, "Window")
+                    end
+                end
+            end
+
+            if option == "Hook" then
+                -- Перебираем все крюки
+                for _, hook in pairs(Workspace.Map:GetChildren()) do
+                    if hook.Name == "Hook" then
+                        highlightHook(hook)
+                    end
+                end
+            end
+
+            if option == "Gate" then
+                -- Перебираем все ворота
+                for _, gate in pairs(Workspace.Map:GetChildren()) do
+                    if gate.Name == "Gate" then
+                        createTextAboveObject(gate, "Gate")
+                    end
+                end
+            end
+        end
+
+        -- Убираем текст и подсветку, если функция снята
+        local function removeCreatedObjects()
+            for _, obj in ipairs(createdObjects) do
+                if obj and obj.Parent then
+                    obj:Destroy()  -- Удаляем объекты
+                end
+            end
+        end
+
+        -- Слушаем изменения в дропдауне
+        MoreESPDropdown.OnChange = function(newValues)
+            -- Проверяем, если какая-то опция снята
+            if not table.find(newValues, "Generator") then
+                removeCreatedObjects()  -- Убираем все тексты и подсветки для Generator
+            end
+            if not table.find(newValues, "Pallet") then
+                removeCreatedObjects()  -- Убираем все тексты для Pallet
+            end
+            if not table.find(newValues, "Window") then
+                removeCreatedObjects()  -- Убираем все тексты для Window
+            end
+            if not table.find(newValues, "Hook") then
+                removeCreatedObjects()  -- Убираем подсветку для Hook
+            end
+            if not table.find(newValues, "Gate") then
+                removeCreatedObjects()  -- Убираем все тексты для Gate
+            end
+        end
+    end,
+})
+
+VisualsTab:Divider()
+
+local PathSection = VisualsTab:Section({ 
+    Title = "loc:SECT_PATH",
+    TextXAlignment = "Center",
+    TextSize = 17,
+})
+
+VisualsTab:Toggle({ Title = "loc:LBL_PATH_TO_KILLER" })
+VisualsTab:Toggle({ Title = "loc:LBL_NEAREST_SURVIVOR" })
+
+local SpecificSurvivorESPDropdown2 = VisualsTab:Dropdown({
+    Title = "loc:LBL_SPECIFIC_SURVIVOR",  -- Заголовок
+    Values = {"Нет игроков"},  -- Изначально заглушка
+    Value = {},  -- Изначально пустое выбранное значение
+    Multi = true,  -- Разрешаем выбрать несколько игроков
+    AllowNone = true,  -- Разрешаем снять все галочки
+    Callback = function(values)
+        -- Обрабатываем выбранные значения
+        if values and type(values) == "table" then
+            for _, value in ipairs(values) do
+                print("Выбран игрок: " .. value)
+            end
+        end
+    end,
+})
+
+-- Функция для обновления значений дропдауна с игроками
+local function updatePlayerListDropdown()
+    local playerValues = {}
+    -- Получаем всех игроков на сервере
+    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+        if player ~= game.Players.LocalPlayer then  -- Исключаем локального игрока
+            -- Форматируем имя игрока как "DisplayName (@Username)"
+            local playerName = string.format("%s (@%s)", player.DisplayName, player.Name)
+            -- Добавляем игрока в список значений
+            table.insert(playerValues, playerName)
+        end
+    end
+    
+    -- Если нет игроков, показываем заглушку
+    if #playerValues == 0 then
+        playerValues = {"Нет игроков"}
+    end
+    
+    -- Создаем новый дропдаун с обновленными значениями
+    -- WindUI не поддерживает SetValues, поэтому пересоздаем
+    if SpecificSurvivorESPDropdown2 then
+        SpecificSurvivorESPDropdown2:Destroy()
+    end
+end
+
+-- Обновляем список игроков при старте
+updatePlayerListDropdown()
+
+-- Обработчик для добавления нового игрока
+game:GetService("Players").PlayerAdded:Connect(function(player)
+    task.wait(1)  -- Небольшая задержка для инициализации
+    updatePlayerListDropdown()
+end)
+
+-- Обработчик для удаления игрока
+game:GetService("Players").PlayerRemoving:Connect(function(player)
+    task.wait(0.5)  -- Небольшая задержка
+    updatePlayerListDropdown()
+end)
+
+local SpecificPlayerColorpicker2 = VisualsTab:Colorpicker({
+    Title = "loc:LBL_SPECIFIC_PLAYER_COLOR",
+    Default = Color3.fromRGB(0, 255, 0),
+    Transparency = 0,
+    Locked = false,
+})
+
+local MorePathDropdown = VisualsTab:Dropdown({
+    Title = "loc:LBL_MORE_PATH",
+    Values = { "Nearest generator", "Nearest pallet", "Nearest window", "Nearest hook", "Nearest gate" },
+    Value = {},
+    Multi = true,
+    AllowNone = true,
+})
+
+local FunctionsTab = MainWindow:Tab({
+    Title = "loc:TAB_FUNCTIONS",
+    Icon = "code",
+    Locked = false,
+})
+
+local FunctionsTabParagraph = FunctionsTab:Paragraph({
+    Title = "loc:TAB_FUNCTIONS",
+    Desc = "loc:DESC_FUNCTIONS",
+    Color = Color3.fromHex("#F59E0B"),
+})
+
+FunctionsTab:Divider()
+
+local SurvivorSection = FunctionsTab:Section({ 
+    Title = "loc:SECT_SURVIVOR",
+    TextXAlignment = "Center",
+    TextSize = 17,
+})
+
+local ItemNoCooldownToggle = FunctionsTab:Toggle({
+    Title = "loc:LBL_ITEM_NO_COOLDOWN",
+    Default = false,
+})
+
+local AutoSkillCheckToggle = FunctionsTab:Toggle({
+    Title = "loc:LBL_AUTO_SKILLCHECK",
+    Default = false,
+})
+
+local FunctionsUtilsDropdown = FunctionsTab:Dropdown({
+    Title = "loc:LBL_FUNCTIONS_UTILS",
+    Values = {"Bandage heal adv", "Twist of fate op", "Inf flashlight", "Auto unhook", "Dagger auto parry" },
+    Value = {},
+    Multi = true,
+    AllowNone = true,
+})
+
+FunctionsTab:Divider()
+
+local KillerSection = FunctionsTab:Section({ 
+    Title = "loc:SECT_KILLER",
+    TextXAlignment = "Center",
+    TextSize = 17,
+})
+
+local BreakPalletsButton = FunctionsTab:Button({
+    Title = "loc:BTN_BREAK_PALLETS",
+})
+
+local KillAllButton = FunctionsTab:Button({
+    Title = "loc:BTN_KILL_ALL",
+    Callback = function()
+        local KillAllDialog = MainWindow:Dialog({
+            Title = "loc:ARE_YOU_SURE",
+            Content = "loc:DESC_KILL_ALL",
+            Buttons = {
+                {
+                    Title = "loc:CONFIRM",
+                    Callback = function()
+                        print("Confirmed!")
+                    end,
+                },
+                {
+                    Title = "loc:CANCEL",
+                    Callback = function()
+                        print("Cancelled!")
+                    end,
+                },
+            },
+        })
+    end,
+})
+
+local KillSomeoneDropdown = FunctionsTab:Dropdown({
+    Title = "loc:KILL_SOMEONE",
+    Values = {
+        "CATEGORY A",
+        "CATEGORY B",
+        "CATEGORY C",
+    },
+    Value = "--",
+    Multi = false,
+})
+
+local FunctionsUtilsDropdown = FunctionsTab:Dropdown({
+    Title = "loc:LBL_FUNCTIONS_UTILS",
+    Values = { "No pallet collision", "Abilities aimbot", "No get parried", "Auto tp hook", "Auto attack", "Auto carry" },
+    Value = { "No pallet collision" },
+    Multi = true,
+    AllowNone = true,
+})
+
+FunctionsTab:Divider()
+
+local TeleportsTab = MainWindow:Tab({
+    Title = "loc:TAB_TELEPORTS",
+    Icon = "map-pin",
+    Locked = false,
+})
+
+local TeleportsTabParagraph = TeleportsTab:Paragraph({
+    Title = "loc:TAB_TELEPORTS",
+    Desc = "loc:DESC_TELEPORTS",
+    Color = Color3.fromHex("#06B6D4"),
+})
+
+TeleportsTab:Divider()
+
+local function TeleportToNearestSurvivor()
+    local P = game:GetService("Players")
+    local lp = P.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local nearest, minDist = nil, math.huge
+    for _, p in ipairs(P:GetPlayers()) do
+        if p ~= lp and p.Team and p.Team.Name == "Survivors" and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            local dist = (p.Character.HumanoidRootPart.Position - myPos).Magnitude
+            if dist < minDist then
+                minDist = dist
+                nearest = p
+            end
+        end
+    end
+    if nearest and nearest.Character and nearest.Character:FindFirstChild("HumanoidRootPart") then
+        local targetPart = nearest.Character.HumanoidRootPart
+        local offset = targetPart.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(targetPart.Position - offset)
+    end
+end
+
+local function TeleportToNearestGenerator()
+    local lp = game.Players.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local nearest, minDist = nil, math.huge
+    local map = workspace:FindFirstChild("Map")
+    if not map then return end
+    for _, obj in ipairs(map:GetChildren()) do
+        if obj.Name == "Generator" and obj:IsA("Model") then
+            local root = obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart")
+            if root then
+                -- Проверяем прогресс ремонта генератора
+                local repairProgress = obj:GetAttribute("RepairProgress")
+                if repairProgress and repairProgress < 100 then -- Если прогресс меньше 100% (1.0)
+                    local dist = (root.Position - myPos).Magnitude
+                    if dist < minDist then
+                        minDist = dist
+                        nearest = root
+                    end
+                end
+            end
+        end
+    end
+    if nearest then
+        local offset = nearest.CFrame and nearest.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(nearest.Position - offset)
+    end
+end
+
+-- Quick actions
+TeleportsTab:Button({ Title = "loc:LBL_NEAREST_SURVIVOR", Callback = TeleportToNearestSurvivor })
+TeleportsTab:Button({ Title = "loc:LBL_NEAREST_GENERATOR", Callback = TeleportToNearestGenerator })
+
+-- Функции для MoreTeleportsDropdown
+local function TeleportToDownedSurvivor()
+    local P = game:GetService("Players")
+    local lp = P.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local nearest, minDist = nil, math.huge
+    
+    for _, p in ipairs(P:GetPlayers()) do
+        if p ~= lp and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            -- Проверяем атрибут Knocked
+            local knocked = p.Character:GetAttribute("Knocked")
+            if knocked then
+                local dist = (p.Character.HumanoidRootPart.Position - myPos).Magnitude
+                if dist < minDist then
+                    minDist = dist
+                    nearest = p.Character.HumanoidRootPart
+                end
+            end
+        end
+    end
+    
+    if nearest then
+        local offset = nearest.CFrame and nearest.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(nearest.Position - offset)
+    end
+end
+
+local function TeleportToHookedSurvivor()
+    local P = game:GetService("Players")
+    local lp = P.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local nearest, minDist = nil, math.huge
+    
+    for _, p in ipairs(P:GetPlayers()) do
+        if p ~= lp and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            -- Проверяем атрибут sHooked
+            local hooked = p.Character:GetAttribute("IsHooked")
+            if hooked then
+                local dist = (p.Character.HumanoidRootPart.Position - myPos).Magnitude
+                if dist < minDist then
+                    minDist = dist
+                    nearest = p.Character.HumanoidRootPart
+                end
+            end
+        end
+    end
+    
+    if nearest then
+        local offset = nearest.CFrame and nearest.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(nearest.Position - offset)
+    end
+end
+
+local function TeleportToFarthestGenerator()
+    local lp = game.Players.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local farthest, maxDist = nil, 0
+    local map = workspace:FindFirstChild("Map")
+    if not map then return end
+    
+    for _, obj in ipairs(map:GetChildren()) do
+        if obj.Name == "Generator" and obj:IsA("Model") then
+            local root = obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart")
+            if root then
+                -- Проверяем прогресс ремонта генератора (только те, у кого меньше 100)
+                local repairProgress = obj:GetAttribute("RepairProgress")
+                if repairProgress and repairProgress < 100 then
+                    local dist = (root.Position - myPos).Magnitude
+                    if dist > maxDist then
+                        maxDist = dist
+                        farthest = root
+                    end
+                end
+            end
+        end
+    end
+    
+    if farthest then
+        local offset = farthest.CFrame and farthest.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(farthest.Position - offset)
+    end
+end
+
+local function TeleportToNearestHook()
+    local lp = game.Players.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local nearest, minDist = nil, math.huge
+    local map = workspace:FindFirstChild("Map")
+    if not map then return end
+    
+    for _, obj in ipairs(map:GetChildren()) do
+        if obj.Name == "Hook" and obj:IsA("Model") then
+            local root = obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart")
+            if root then
+                local dist = (root.Position - myPos).Magnitude
+                if dist < minDist then
+                    minDist = dist
+                    nearest = root
+                end
+            end
+        end
+    end
+    
+    if nearest then
+        local offset = nearest.CFrame and nearest.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(nearest.Position - offset)
+    end
+end
+
+local function TeleportToFarthestHook()
+    local lp = game.Players.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local farthest, maxDist = nil, 0
+    local map = workspace:FindFirstChild("Map")
+    if not map then return end
+    
+    for _, obj in ipairs(map:GetChildren()) do
+        if obj.Name == "Hook" and obj:IsA("Model") then
+            local root = obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart")
+            if root then
+                local dist = (root.Position - myPos).Magnitude
+                if dist > maxDist then
+                    maxDist = dist
+                    farthest = root
+                end
+            end
+        end
+    end
+    
+    if farthest then
+        local offset = farthest.CFrame and farthest.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(farthest.Position - offset)
+    end
+end
+
+local function TeleportToFarthestGate()
+    local lp = game.Players.LocalPlayer
+    local myChar = lp.Character
+    if not myChar or not myChar:FindFirstChild("HumanoidRootPart") then return end
+    local myPos = myChar.HumanoidRootPart.Position
+    local farthest, maxDist = nil, 0
+    local map = workspace:FindFirstChild("Map")
+    if not map then return end
+    
+    for _, obj in ipairs(map:GetChildren()) do
+        if obj.Name == "Gate" and obj:IsA("Model") then
+            local box = obj:FindFirstChild("Box")
+            if box and box:IsA("BasePart") then
+                local dist = (box.Position - myPos).Magnitude
+                if dist > maxDist then
+                    maxDist = dist
+                    farthest = box
+                end
+            end
+        end
+    end
+    
+    if farthest then
+        local offset = farthest.CFrame and farthest.CFrame.LookVector or Vector3.new(0,0,1)
+        myChar:MoveTo(farthest.Position - offset)
+    end
+end
+
+-- More targets
+local MoreTeleportsDropdown = TeleportsTab:Dropdown({
+    Title = "loc:LBL_MORE_TELEPORTS",
+    Values = {
+        "Downed survivor",
+        "Hooked survivor",
+        "Farthest generator",
+        "Nearest hook",
+        "Farthest hook",
+        "Farthest gate",
+    },
+    Value = "Downed survivor",
+    Multi = false,
+    Callback = function(value)
+        if value == "Downed survivor" then
+            TeleportToDownedSurvivor()
+        elseif value == "Hooked survivor" then
+            TeleportToHookedSurvivor()
+        elseif value == "Farthest generator" then
+            TeleportToFarthestGenerator()
+        elseif value == "Nearest hook" then
+            TeleportToNearestHook()
+        elseif value == "Farthest hook" then
+            TeleportToFarthestHook()
+        elseif value == "Farthest gate" then
+            TeleportToFarthestGate()
+        end
+    end,
+})
+
+local MoreTeleportsDropdown2 = TeleportsTab:Dropdown({
+    Title = "loc:LBL_TELEPORT_TO_SPECIFIC_PLAYER",
+    Values = { "loc:LBL_TELEPORT_TO_SPECIFIC_PLAYER" },
+    Value = "loc:NO_PLAYERS",
+    Multi = false,
+})
+
+local NotificationsTab = MainWindow:Tab({
+    Title = "loc:TAB_NOTIFICATIONS",
+    Icon = "bell",
+    Locked = false,
+})
+
+local NotificationsTabParagraph = NotificationsTab:Paragraph({
+    Title = "loc:TAB_NOTIFICATIONS",
+    Desc = "loc:DESC_NOTIFICATIONS",
+    Color = Color3.fromHex("#EF4444"),
+})
+
+NotificationsTab:Divider()
+
+local NotifyKnowKillerToggle = NotificationsTab:Toggle({
+    Title = "loc:LBL_NOTIFY_KNOW_KILLER",
+    Desc = "loc:DESC_NOTIFY_KNOW_KILLER",
+    Default = false,
+})
+
+local NotifyBreaksGenToggle = NotificationsTab:Toggle({
+    Title = "loc:LBL_NOTIFY_BREAKS_GEN",
+    Default = false,
+})
+
+local NotifyHooksToggle = NotificationsTab:Toggle({
+    Title = "loc:LBL_NOTIFY_HOOKS",
+    Default = false,
+})
+
+local NotifyDownToggle = NotificationsTab:Toggle({
+    Title = "loc:LBL_NOTIFY_DOWN",
+    Default = false,
+})
+
+local KeybindsTab = MainWindow:Tab({
+    Title = "loc:TAB_KEYBINDS",
+    Icon = "key-round",
+    Locked = false,
+})
+
+local KeybindsTabParagraph = KeybindsTab:Paragraph({
+    Title = "loc:TAB_KEYBINDS",
+    Desc = "loc:DESC_KEYBINDS",
+    Color = Color3.fromHex("#64748B"),
+})
+
+KeybindsTab:Divider()
+
+local UISection = KeybindsTab:Section({ Title = "loc:SECT_UI" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TOGGLE_UI" })
+
+local TPSection = KeybindsTab:Section({ Title = "loc:SECT_TP" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_NEAREST_SURV" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_DOWNED_SURV" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_HOOKED_SURV" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_NEAREST_GEN" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_FARTHEST_GEN" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_NEAREST_HOOK" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_FARTHEST_HOOK" })
+KeybindsTab:Keybind({ Title = "loc:KEY_TP_FARTHEST_GATE" })
+
+local FuncsSection = KeybindsTab:Section({ Title = "loc:SECT_FUNCS" })
+KeybindsTab:Keybind({ Title = "loc:KEY_FULLBRIGHT" })
+KeybindsTab:Keybind({ Title = "loc:KEY_FLY" })
+KeybindsTab:Keybind({ Title = "loc:KEY_NOCLIP" })
+
+MainWindow:Divider()
+
+    local DesignTab = MainWindow:Tab({
+        Title = "loc:TAB_DESIGN",
+        Icon = "palette",
+        Locked = false,
+    })
+
+    local DesignTabParagraph = DesignTab:Paragraph({
+        Title = "loc:TAB_DESIGN",
+        Desc = "loc:DESC_DESIGN",
+        Color = Color3.fromHex("#8B5CF6"),
+    })
+
+    DesignTab:Divider()
+
+    local themes = {}
+    for themeName, _ in pairs(WindUI:GetThemes()) do
+        table.insert(themes, themeName)
+    end
+    table.sort(themes)
+
+    local themeDropdown = DesignTab:Dropdown({
+        Title = "loc:LBL_THEME_SELECT",
+        Values = themes,
+        Value = "Dark",
+        Callback = function(theme)
+            canchangedropdown = false
+            WindUI:SetTheme(theme)
+        end
+    })
+
+    local TransparentSlider = DesignTab:Slider({
+        Title = "loc:LBL_TRANSPARENT_SLIDER",
+        Step = 1,
+        Value = { Min = 0, Max = 100, Default = 0 },
+    })
+
+local MiscTab = MainWindow:Tab({
+    Title = "loc:TAB_MISC",
+    Icon = "settings",
+    Locked = false,
+})
+
+local MiscTabParagraph = MiscTab:Paragraph({
+    Title = "loc:TAB_MISC",
+    Desc = "loc:DESC_MISC",
+    Color = Color3.fromHex("#A3A3A3"),
+})
+
+MiscTab:Divider()
+
+-- Language dropdown
+local LanguageDropdown = MiscTab:Dropdown({
+    Title = "loc:LBL_LANGUAGE",
+    Values = { "English", "Русский" },
+    Value = (WindUI and WindUI.GetCurrentLanguage and WindUI:GetCurrentLanguage() == "ru") and "Русский" or "English",
+    Multi = false,
+    Callback = function(value)
+        local SelectedLanguage = (value == "Русский") and "ru" or "en"
+        if WindUI and WindUI.SetLanguage then
+            WindUI:SetLanguage(SelectedLanguage)
+        end
+    end
+})
+
+MiscTab:Divider()
+
+local FPSBoostToggle = MiscTab:Toggle({
+    Title = "loc:LBL_FPS_BOOST",
+    Default = false,
+})
+
+local ConfigNameInput = MiscTab:Input({
+    Title = "loc:LBL_CONFIG_NAME",
+    Type = "Input",
+    Placeholder = "Enter name...",
+})
+
+local SaveConfigButton = MiscTab:Button({
+    Title = "loc:LBL_SAVE_CONFIG",
+})
+
+MiscTab:Divider()
+
+local LoadConfigDropdown = MiscTab:Dropdown({
+    Title = "loc:LBL_LOAD_CONFIG",
+    Values = { "Category A", "Category B", "Category C" },
+    Value = "Category A",
+})
+
+local LoadConfigButton = MiscTab:Button({
+    Title = "loc:LBL_LOAD_CONFIG",
+})
+
+MiscTab:Divider()
+local VersionSection = MainWindow:Section({ Title = "RossHub v1.0.0"})
+
+MiscTab:Paragraph({
+    Title = "loc:LBL_JOIN_DISCORD",
+    Color = "White",
+    Buttons = {
+        {
+            Title = "discord.gg/rosshub",
+            Icon = "copy",
+            Variant = "Tertiary",
+            Callback = function()
+                setclipboard("discord.gg/rosshub")
+            end
+        }
+    }
+})
+
+if MainWindow and MainWindow.SelectTab then
+        MainWindow:SelectTab(1)
+end
