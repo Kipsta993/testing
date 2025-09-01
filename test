@@ -4816,94 +4816,91 @@ local ad=aa.Tween
 local ae=a.load'B'.New
 local af={}
 
-local ag=false
-
-function af.New(ah,ai)
-local aj={
+function af.New(ag,ah)
+local ai={
 __type="ToggleSlider",
-Title=ai.Title or"Toggle Slider",
-Desc=ai.Desc or nil,
-ToggleValue=ai.ToggleValue or false,
-SliderValue=ai.SliderValue or{},
-Step=ai.Step or 1,
-ToggleCallback=ai.ToggleCallback or function()end,
-SliderCallback=ai.SliderCallback or function()end,
+Title=ah.Title or"Toggle Slider",
+Desc=ah.Desc or nil,
+ToggleValue=ah.ToggleValue or false,
+SliderValue=ah.SliderValue or{},
+Step=ah.Step or 1,
+ToggleCallback=ah.ToggleCallback or function()end,
+SliderCallback=ah.SliderCallback or function()end,
 UIElements={},
-IsFocusing=false,
 
 Width=130,
 TextBoxWidth=30,
 }
 
-local ak
-local al
-local am
-local an=aj.SliderValue.Default or aj.SliderValue.Min or 0
+local aj=ai.SliderValue.Default or ai.SliderValue.Min or 0
+local ak=aj
+local al=(aj-(ai.SliderValue.Min or 0))/((ai.SliderValue.Max or 100)-(ai.SliderValue.Min or 0))
 
-local ao=an
-local ap=(an-(aj.SliderValue.Min or 0))/((aj.SliderValue.Max or 100)-(aj.SliderValue.Min or 0))
+local am=true
+local an=ai.Step%1~=0
+local ao=false
 
-local aq=true
-local ar=aj.Step%1~=0
-
-local function FormatValue(as)
-if ar then
-return string.format("%.2f",as)
+local function FormatValue(ap)
+if an then
+return string.format("%.2f",ap)
 else
-return tostring(math.floor(as+0.5))
+return tostring(math.floor(ap+0.5))
 end
 end
 
-local function CalculateValue(as)
-if ar then
-return math.floor(as/aj.Step+0.5)*aj.Step
+local function CalculateValue(ap)
+if an then
+return math.floor(ap/ai.Step+0.5)*ai.Step
 else
-return math.floor(as/aj.Step+0.5)*aj.Step
+return math.floor(ap/ai.Step+0.5)*ai.Step
 end
 end
 
 
-aj.ToggleSliderFrame=a.load'y'{
-Title=aj.Title,
-Desc=aj.Desc,
-Window=ai.Window,
-Parent=ai.Parent,
+ai.ToggleSliderFrame=a.load'y'{
+Title=ai.Title,
+Desc=ai.Desc,
+Window=ah.Window,
+Parent=ah.Parent,
 TextOffset=180,
 Hover=false,
 }
 
 
-aj.UIElements.Toggle=ae{
+ai.UIElements.Toggle=ae{
 Size=UDim2.fromOffset(20,20),
-Parent=aj.ToggleSliderFrame.Main,
+Parent=ai.ToggleSliderFrame.Main,
 Color=aa.Theme.Background.Accent,
-Value=aj.ToggleValue,
+Value=ai.ToggleValue,
 Corner=3,
-Callback=function(as)
-if aq then
-aj.ToggleValue=as
-aj.ToggleCallback(as)
+Callback=function(ap)
+if am then
+ai.ToggleValue=ap
+aa.SafeCallback(ai.ToggleCallback,ap)
 end
 end
 }
 
 
-aj.UIElements.SliderContainer=ac("Frame",{
+ai.UIElements.Toggle.Position=UDim2.fromOffset(0,0)
+
+
+ai.UIElements.SliderContainer=ac("Frame",{
 Name="SliderContainer",
 BackgroundTransparency=1,
-Size=UDim2.fromOffset(aj.Width,20),
+Size=UDim2.fromOffset(ai.Width,20),
 Position=UDim2.fromOffset(30,0),
-Parent=aj.ToggleSliderFrame.Main
+Parent=ai.ToggleSliderFrame.Main
 })
 
 
-aj.UIElements.SliderBackground=ac("Frame",{
+ai.UIElements.SliderBackground=ac("Frame",{
 Name="SliderBackground",
 BackgroundColor3=aa.Theme.Background.Slider,
 BorderSizePixel=0,
-Size=UDim2.new(1,-aj.TextBoxWidth-5,0,6),
+Size=UDim2.new(1,-ai.TextBoxWidth-5,0,6),
 Position=UDim2.fromOffset(0,7),
-Parent=aj.UIElements.SliderContainer
+Parent=ai.UIElements.SliderContainer
 },{
 ac("UICorner",{
 CornerRadius=UDim.new(0,3)
@@ -4911,13 +4908,13 @@ CornerRadius=UDim.new(0,3)
 })
 
 
-aj.UIElements.SliderFill=ac("Frame",{
+ai.UIElements.SliderFill=ac("Frame",{
 Name="SliderFill",
 BackgroundColor3=aa.Theme.Background.Accent,
 BorderSizePixel=0,
-Size=UDim2.new(ap,0,1,0),
+Size=UDim2.new(al,0,1,0),
 Position=UDim2.fromOffset(0,0),
-Parent=aj.UIElements.SliderBackground
+Parent=ai.UIElements.SliderBackground
 },{
 ac("UICorner",{
 CornerRadius=UDim.new(0,3)
@@ -4925,13 +4922,13 @@ CornerRadius=UDim.new(0,3)
 })
 
 
-aj.UIElements.SliderKnob=ac("Frame",{
+ai.UIElements.SliderKnob=ac("Frame",{
 Name="SliderKnob",
 BackgroundColor3=aa.Theme.Background.Tab,
 BorderSizePixel=0,
 Size=UDim2.fromOffset(12,12),
-Position=UDim2.new(ap,-6,0.5,-6),
-Parent=aj.UIElements.SliderBackground
+Position=UDim2.new(al,-6,0.5,-6),
+Parent=ai.UIElements.SliderBackground
 },{
 ac("UICorner",{
 CornerRadius=UDim.new(0,6)
@@ -4943,16 +4940,16 @@ Color=aa.Theme.Background.Accent
 })
 
 
-aj.UIElements.ValueTextBox=ac("TextBox",{
+ai.UIElements.ValueTextBox=ac("TextBox",{
 Name="ValueTextBox",
 BackgroundColor3=aa.Theme.Background.Input,
 BorderSizePixel=0,
-Size=UDim2.fromOffset(aj.TextBoxWidth,20),
-Position=UDim2.new(1,-aj.TextBoxWidth,0,0),
-Parent=aj.UIElements.SliderContainer,
-Font=aa.Font,
+Size=UDim2.fromOffset(ai.TextBoxWidth,20),
+Position=UDim2.new(1,-ai.TextBoxWidth,0,0),
+Parent=ai.UIElements.SliderContainer,
+FontFace=Font.new(aa.Font),
 PlaceholderText="",
-Text=FormatValue(an),
+Text=FormatValue(aj),
 TextColor3=aa.Theme.Text.Default,
 TextSize=12,
 TextXAlignment=Enum.TextXAlignment.Center,
@@ -4964,125 +4961,115 @@ CornerRadius=UDim.new(0,4)
 })
 
 
-aj.UIElements.Toggle.Parent=aj.ToggleSliderFrame.Main
-aj.UIElements.Toggle.Position=UDim2.fromOffset(0,0)
+local function UpdateSlider(ap,aq)
+ap=math.clamp(ap,ai.SliderValue.Min or 0,ai.SliderValue.Max or 100)
+ap=CalculateValue(ap)
 
+aj=ap
+al=(aj-(ai.SliderValue.Min or 0))/((ai.SliderValue.Max or 100)-(ai.SliderValue.Min or 0))
 
-local function UpdateSlider(as,at)
-as=math.clamp(as,aj.SliderValue.Min or 0,aj.SliderValue.Max or 100)
-as=CalculateValue(as)
+ad(ai.UIElements.SliderFill,TweenInfo.new(0.15,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
+Size=UDim2.new(al,0,1,0)
+}):Play()
 
-an=as
-ap=(an-(aj.SliderValue.Min or 0))/((aj.SliderValue.Max or 100)-(aj.SliderValue.Min or 0))
+ad(ai.UIElements.SliderKnob,TweenInfo.new(0.15,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
+Position=UDim2.new(al,-6,0.5,-6)
+}):Play()
 
-ad(aj.UIElements.SliderFill,TweenInfo.new(0.15,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
-Size=UDim2.new(ap,0,1,0)
-})
-
-ad(aj.UIElements.SliderKnob,TweenInfo.new(0.15,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
-Position=UDim2.new(ap,-6,0.5,-6)
-})
-
-if not at then
-aj.UIElements.ValueTextBox.Text=FormatValue(an)
+if not aq then
+ai.UIElements.ValueTextBox.Text=FormatValue(aj)
 end
 
-if aq and an~=ao then
-ao=an
-aj.SliderCallback(an)
+if am and aj~=ak then
+ak=aj
+aa.SafeCallback(ai.SliderCallback,aj)
 end
 end
 
 
-aj.UIElements.SliderBackground.InputBegan:Connect(function(as)
-if as.UserInputType==Enum.UserInputType.MouseButton1 or as.UserInputType==Enum.UserInputType.Touch then
-ak=as.UserInputType==Enum.UserInputType.Touch
-local at=math.clamp((as.Position.X-aj.UIElements.SliderBackground.AbsolutePosition.X)/aj.UIElements.SliderBackground.AbsoluteSize.X,0,1)
-local au=(aj.SliderValue.Min or 0)+at*((aj.SliderValue.Max or 100)-(aj.SliderValue.Min or 0))
-UpdateSlider(au)
+ai.UIElements.SliderBackground.InputBegan:Connect(function(ap)
+if ap.UserInputType==Enum.UserInputType.MouseButton1 or ap.UserInputType==Enum.UserInputType.Touch then
+local aq=ap.UserInputType==Enum.UserInputType.Touch
+local ar=math.clamp((ap.Position.X-ai.UIElements.SliderBackground.AbsolutePosition.X)/ai.UIElements.SliderBackground.AbsoluteSize.X,0,1)
+local as=(ai.SliderValue.Min or 0)+ar*((ai.SliderValue.Max or 100)-(ai.SliderValue.Min or 0))
+UpdateSlider(as)
 
-ag=true
+ao=true
 
-if al then al:Disconnect()end
-if am then am:Disconnect()end
+local at
+local au
 
-al=game:GetService"UserInputService".InputChanged:Connect(function(av)
-if av.UserInputType==(ak and Enum.UserInputType.Touch or Enum.UserInputType.MouseMovement)then
-local aw=math.clamp((av.Position.X-aj.UIElements.SliderBackground.AbsolutePosition.X)/aj.UIElements.SliderBackground.AbsoluteSize.X,0,1)
-local ax=(aj.SliderValue.Min or 0)+aw*((aj.SliderValue.Max or 100)-(aj.SliderValue.Min or 0))
+at=game:GetService"UserInputService".InputChanged:Connect(function(av)
+if av.UserInputType==(aq and Enum.UserInputType.Touch or Enum.UserInputType.MouseMovement)then
+local aw=math.clamp((av.Position.X-ai.UIElements.SliderBackground.AbsolutePosition.X)/ai.UIElements.SliderBackground.AbsoluteSize.X,0,1)
+local ax=(ai.SliderValue.Min or 0)+aw*((ai.SliderValue.Max or 100)-(ai.SliderValue.Min or 0))
 UpdateSlider(ax)
 end
 end)
 
-am=game:GetService"UserInputService".InputEnded:Connect(function(av)
-if av.UserInputType==(ak and Enum.UserInputType.Touch or Enum.UserInputType.MouseButton1)then
-ag=false
-if al then al:Disconnect()end
-if am then am:Disconnect()end
+au=game:GetService"UserInputService".InputEnded:Connect(function(av)
+if av.UserInputType==(aq and Enum.UserInputType.Touch or Enum.UserInputType.MouseButton1)then
+ao=false
+if at then at:Disconnect()end
+if au then au:Disconnect()end
 end
 end)
 end
 end)
 
 
-aj.UIElements.ValueTextBox.FocusLost:Connect(function()
-local as,at=pcall(function()
-return tonumber(aj.UIElements.ValueTextBox.Text)
+ai.UIElements.ValueTextBox.FocusLost:Connect(function()
+local ap,aq=pcall(function()
+return tonumber(ai.UIElements.ValueTextBox.Text)
 end)
 
-if as and at then
-UpdateSlider(at,true)
+if ap and aq then
+UpdateSlider(aq,true)
 else
-aj.UIElements.ValueTextBox.Text=FormatValue(an)
+ai.UIElements.ValueTextBox.Text=FormatValue(aj)
 end
-
-aj.IsFocusing=false
-end)
-
-aj.UIElements.ValueTextBox.Focused:Connect(function()
-aj.IsFocusing=true
 end)
 
 
-function aj.SetToggle(as,at)
-aj.ToggleValue=at
-aj.UIElements.Toggle:Set(at)
+function ai.SetToggle(ap,aq)
+ai.ToggleValue=aq
+ai.UIElements.Toggle:Set(aq)
 end
 
-function aj.SetSlider(as,at)
-UpdateSlider(at,true)
+function ai.SetSlider(ap,aq)
+UpdateSlider(aq,true)
 end
 
-function aj.GetToggle(as)
-return aj.ToggleValue
+function ai.GetToggle(ap)
+return ai.ToggleValue
 end
 
-function aj.GetSlider(as)
-return an
-end
-
-function aj.Lock(as)
-aq=false
-return aj.ToggleSliderFrame:Lock()
-end
-
-function aj.Unlock(as)
-aq=true
-return aj.ToggleSliderFrame:Unlock()
-end
-
-
-aa.AddThemeObject(aj.UIElements.SliderBackground,"Background","Slider")
-aa.AddThemeObject(aj.UIElements.SliderFill,"Background","Accent")
-aa.AddThemeObject(aj.UIElements.SliderKnob,"Background","Tab")
-aa.AddThemeObject(aj.UIElements.ValueTextBox,"Background","Input")
-aa.AddThemeObject(aj.UIElements.ValueTextBox,"Text","Default")
-
+function ai.GetSlider(ap)
 return aj
 end
 
-return af end function a.G()
+function ai.Lock(ap)
+am=false
+return ai.ToggleSliderFrame:Lock()
+end
 
+function ai.Unlock(ap)
+am=true
+return ai.ToggleSliderFrame:Unlock()
+end
+
+
+aa.AddThemeObject(ai.UIElements.SliderBackground,"Background","Slider")
+aa.AddThemeObject(ai.UIElements.SliderFill,"Background","Accent")
+aa.AddThemeObject(ai.UIElements.SliderKnob,"Background","Tab")
+aa.AddThemeObject(ai.UIElements.ValueTextBox,"Background","Input")
+aa.AddThemeObject(ai.UIElements.ValueTextBox,"Text","Default")
+
+
+return af,ai
+end
+
+return af end function a.G()
 local aa=game:GetService"UserInputService"
 
 local ac=a.load'a'
